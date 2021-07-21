@@ -73,10 +73,19 @@ def options():
         return False
 
 def highscore():
-    f = open("high_score.txt","r")
-    high_score = f.read()
-    f.close()
-    return high_score
+    try :
+        f = open("high_score.txt", "r")
+        high_score = f.read()
+        f.close()
+    except:
+        high_score = 0
+        f = open("high_score.txt", 'w')
+        f.write(high_score)
+        f.close()
+    return high_score 
+
+
+
 
 def write_highscore(score):
     f = open("high_score.txt", 'w')
